@@ -1,0 +1,6 @@
+<h1>edit</h1>
+<%= form_for @changeset, topic_path(@conn, :update, @topic), fn f -> %>
+  <%= text_input f, :title, placeholder: "Title" %>
+  <%= error_tag(f, :title) %>
+  <%= submit "Save Topic" %>
+<% end %>
