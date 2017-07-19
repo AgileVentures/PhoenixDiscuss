@@ -19,6 +19,22 @@
         <a href="/" class="brand-logo">
           Discussions
         </a>
+        <ul class="left">
+            <%= if @conn.assigns.user do %>
+              <li>
+              <%= "Welcome #{@conn.assigns.user.name}!!!!" %>
+              </li>
+            <% end %>    
+        </ul>  
+        <ul class="right">
+          <li>
+            <%= if @conn.assigns.user do %>
+              <%= link "Log Out", to: auth_path(@conn, :logout) %>
+            <% else %>
+              <%= link "Sign In with Github", to: auth_path(@conn, :request, "github") %>
+            <% end %>
+          </li>
+        </ul>  
       </div>
     </nav>
     
